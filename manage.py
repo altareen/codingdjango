@@ -10,6 +10,7 @@
 #
 # Venv setup:       python3 -m venv venv
 # Venv activation:  source venv/bin/activate
+# Check Django:     python -m django --version
 # Install Django:   pip install django
 #
 # Project creation: django-admin startproject <projectname>
@@ -37,13 +38,14 @@
 # Note: the sqlite database has been switched to postgresql on the localhost
 # by exporting the following environment variable in ~/.bashrc:
 # export DATABASE_URL="postgres://altareen:password@localhost/<databasename>"
+# source ~/.bashrc
 #
 # Install postgres: sudo apt install postgresql
 # Create a database: sudo -u postgres createdb <databasename>
 # Log in to postgres: sudo -u postgres psql
 # Create a user: CREATE USER altareen WITH PASSWORD '<password>';
-# Grant privileges: GRANT ALL PRIVILEGES ON DATABASE <databasename> TO altareen;
 # Create privileges: ALTER USER altareen CREATEDB;
+# Grant privileges: GRANT ALL PRIVILEGES ON DATABASE <databasename> TO altareen;
 # Quit postgres: \q
 #
 # Log in to Postgres as altareen: psql -U altareen -h localhost <databasename>
@@ -53,6 +55,7 @@
 # Install heroku CLI: sudo curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
 # heroku login
 # heroku create codingdjango
+# In Heroku, Configure Add-ons, then add a Postgres database
 # heroku config:set SECRET_KEY='very-long-existing-secret-key-from-settings.py-file' -a codingdjango
 # In codingdjango/settings.py, add the following secret key statement:
 # SECRET_KEY = os.getenv('SECRET_KEY', 'change-in-production')
@@ -60,7 +63,7 @@
 
 # Required additions to settings.py
 #----------------------------------
-# In codingdjango/settings.py, add the following import statements near the top:
+# In codingdjango/settings.py, add the following import statements at the top:
 # import django_on_heroku
 # import dj_database_url
 # import os
@@ -123,6 +126,11 @@
 # git init
 # heroku git:remote -a codingdjango
 
+# Initialize the repository for github
+#-------------------------------------
+# Log on to github.com, create a new repository, name it codingdjango, then
+# follow the command statements that appear.
+
 # Install Requirements via pip
 #-----------------------------
 # pip install whitenoise
@@ -149,6 +157,12 @@
 # git add .
 # git commit -m "deploy codingdjango"
 # git push heroku master
+
+# Push code to the github repository:
+#------------------------------------
+# git add .
+# git commit -m "deploy codingdjango"
+# git push origin main
 #
 ##
 

@@ -156,7 +156,7 @@
 #------------------------------------
 # git add .
 # git commit -m "deploy codingdjango"
-# git push heroku master
+# git push heroku main
 
 # Push code to the github repository:
 #------------------------------------

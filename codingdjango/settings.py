@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'taggit',
 
     # Web project applications
+    'adverts.apps.AdvertsConfig',
     'events.apps.EventsConfig',
 ]
 

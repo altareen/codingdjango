@@ -1,0 +1,72 @@
+{% extends "adverts/base_menu.html" %}
+{% block content %}
+<h1>Adverts</h1>
+<div style="float:right">
+<!-- https://www.w3schools.com/howto/howto_css_search_button.asp -->
+<form>
+  <input type="text" placeholder="Search.." name="search"
+  {% if search %} value="{{ search }}" {% endif %}>
+  <button type="submit"><i class="fa fa-search"></i></button>
+<a href="{% url 'adverts:all' %}"><i class="fa fa-undo"></i></a>
+</form>
+</div>
+<p>
+{% if advert_list %}
+<ul>
+  {% for advert in advert_list %}
+    <li>
+        <a href="{% url 'adverts:advert_detail' advert.id %}">{{ advert.title }} ${{ advert.price }}</a>
+        {% if advert.owner == user %}
+        (<a href="{% url 'adverts:advert_update' advert.id %}">Edit</a> |
+        <a href="{% url 'adverts:advert_delete' advert.id %}">Delete</a>)
+        {% endif %}
+        {% if user.is_authenticated %}
+        <!-- Two hrefs with two stacked icons each - one showing and one hidden -->
+        <a href="#" onclick=
+            "favPost('{% url 'adverts:advert_unfavorite' advert.id %}', {{ advert.id }} );return false;"
+            {% if advert.id not in favorites %} style="display: none;" {% endif %}
+            id="favorite_star_{{advert.id}}">
+        <span class="fa-stack" style="vertical-align: middle;">
+        <i class="fa fa-star fa-stack-1x" style="color: orange;"></i>
+        <i class="fa fa-star-o fa-stack-1x"></i>
+        </span>
+        </a>
+        <!-- the second href -->
+        <a href="#" onclick=
+             "favPost('{% url 'adverts:advert_favorite' advert.id %}', {{ advert.id }} );return false;"
+            {% if advert.id in favorites %} style="display: none;" {% endif %}
+            id="unfavorite_star_{{advert.id}}">
+        <span class="fa-stack" style="vertical-align: middle;">
+        <i class="fa fa-star fa-stack-1x" style="display: none; color: orange;"></i>
+        <i class="fa fa-star-o fa-stack-1x"></i>
+        </span>
+        </a>
+        {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+{% else %}
+  <p>There are no adverts in the database.</p>
+{% endif %}
+</p>
+<p>
+<a href="{% url 'adverts:advert_create' %}">Create an Advert</a> |
+{% if user.is_authenticated %}
+<a href="{% url 'logout' %}?next={% url 'adverts:all' %}">Logout</a>
+{% else %}
+<a href="{% url 'login' %}?next={% url 'adverts:all' %}">Login</a>
+{% endif %}
+</p>
+<script>
+function favPost(url, advert_id) {
+    console.log('Requesting JSON');
+    $.post(url, {},  function(rowz){
+        console.log(url, 'finished');
+        $("#unfavorite_star_"+advert_id).toggle();
+        $("#favorite_star_"+advert_id).toggle();
+    }).fail(function(xhr) {
+        alert('Url failed with '+xhr.status+' '+url);
+    });
+}
+</script>
+{% endblock %}

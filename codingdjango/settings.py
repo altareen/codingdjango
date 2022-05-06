@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
     # Web project applications
     'adverts.apps.AdvertsConfig',
+    'auctions.apps.AuctionsConfig',
     'autos.apps.AutosConfig',
     'events.apps.EventsConfig',
 ]

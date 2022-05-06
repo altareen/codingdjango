@@ -110,7 +110,7 @@
 #    DEBUG = False
 #
 # Specify a Python version of 3.8.13, because the later versions are problematic:
-#----------------------------------------------------------------------------
+#--------------------------------------------------------------------------------
 # Create the following file:
 # echo python-3.8.13 > runtime.txt
 

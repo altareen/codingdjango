@@ -1,0 +1,30 @@
+{% extends "autos/base_menu.html" %}
+
+{% block content %}
+  <h1>Auto List</h1>
+  {% if auto_list %}
+  <ul>
+    {% for auto in auto_list %}
+      <li>
+          {{ auto.name }} ({{ auto.brand }})
+          (<a href="{% url 'autos:auto_update' auto.id %}">Update</a> |
+          <a href="{% url 'autos:auto_delete' auto.id %}">Delete</a>) <br/>
+          {{ auto.comments }} ({{ auto.mileage }} miles)
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no autos in the library.</p>
+  {% endif %}
+  <p>
+    {% if brand_count > 0 %}
+      <a href="{% url 'autos:auto_create' %}">Add an auto</a>
+    {% else %}
+      Please add a brand before you add an auto.
+    {% endif %}
+  </p>
+  <p>
+  <a href="{% url 'autos:brand_list' %}">View brands</a> ({{ brand_count }}) | 
+    <a href="{% url 'autos:brand_create' %}">Add a brand</a>
+  </p>
+{% endblock %}

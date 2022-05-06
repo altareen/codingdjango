@@ -1,0 +1,22 @@
+{% extends "autos/base_menu.html" %}
+
+{% block content %}
+  <h1>Brand List</h1>
+  {% if brand_list %}
+  <ul>
+    {% for brand in brand_list %}
+      <li>
+          {{ brand.name }}
+         (<a href="{% url 'autos:brand_update' brand.id %}">Update</a> |
+          <a href="{% url 'autos:brand_delete' brand.id %}">Delete</a>)
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no brands in the library.</p>
+  {% endif %}
+  <p><a href="{% url 'autos:brand_create' %}">Add a brand</a></p>
+  <p>
+    <a href="{% url 'autos:all' %}">Back to autos</a>
+  </p>
+{% endblock %}

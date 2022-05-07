@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'auctions.apps.AuctionsConfig',
     'autos.apps.AutosConfig',
     'events.apps.EventsConfig',
-    #'network.apps.NetworkConfig',
 ]
 
 MIDDLEWARE = [

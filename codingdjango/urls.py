@@ -24,5 +24,4 @@ urlpatterns = [
     path('auctions/', include('auctions.urls')),
     path('autos/', include('autos.urls')),
     path('events/', include('events.urls')),
-    #path('network/', include('network.urls')),
 ]

@@ -9,7 +9,7 @@
         <p>Congratulations, you have successfully <strong>removed</strong> the following auction listing from your watchlist: <strong>{{ listing.title }}</strong></p>
     {% endif %}
     
-    <a href="{% url 'watchlist' %}">View Watchlist</a>
+    <a href="{% url 'auctions:watchlist' %}">View Watchlist</a>
     <br>
-    <a href="{% url 'listing' listing.id %}">Return to the {{ listing.title }} listing</a>
+    <a href="{% url 'auctions:listing' listing.id %}">Return to the {{ listing.title }} listing</a>
 {% endblock %}

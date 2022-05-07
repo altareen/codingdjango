@@ -6,5 +6,5 @@
         <p>Congratulations, you have successfully <strong>posted</strong> the following comment on the auction listing: <strong>{{ listing.title }}</strong></p>
         <p>{{ comments.last.content }}</p>
 
-    <a href="{% url 'listing' listing.id %}">Return to the {{ listing.title }} listing</a>
+    <a href="{% url 'auctions:listing' listing.id %}">Return to the {{ listing.title }} listing</a>
 {% endblock %}

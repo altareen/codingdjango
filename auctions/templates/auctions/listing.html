@@ -5,7 +5,7 @@
 
     {% if listing.active %}
 
-        <form action="{% url 'success' %}" method="post">
+        <form action="{% url 'auctions:success' %}" method="post">
             {% csrf_token %}
             <div class="form-group">
                 <input autofocus class="form-control" type="hidden" name="listing_id" value="{{ listing.id }}">
@@ -18,7 +18,7 @@
         </form>
 
         {% if listing.creator == user %}
-            <form action="{% url 'close' %}" method="post">
+            <form action="{% url 'auctions:close' %}" method="post">
                 {% csrf_token %}
                 <div class="form-group">
                     <input autofocus class="form-control" type="hidden" name="listing_id" value="{{ listing.id }}">
@@ -48,7 +48,7 @@
         {% endif %}
         bid is the current bid.</p>
         
-        <form action="{% url 'listing' listing.id %}" method="post">
+        <form action="{% url 'auctions:listing' listing.id %}" method="post">
             {% csrf_token %}
             <div class="form-group">
                 <input autofocus class="form-control" type="number" name="current_bid" min="{{ bids.last.price }}" placeholder="Bid">
@@ -65,7 +65,7 @@
 
         <h2>Comments</h2>
 
-        <form action="{% url 'comment' %}" method="post">
+        <form action="{% url 'auctions:comment' %}" method="post">
             {% csrf_token %}
             <div class="form-group">
                 <input autofocus class="form-control" type="hidden" name="listing_id" value="{{ listing.id }}">
@@ -92,7 +92,7 @@
         <p>The final auction price was: <strong>${{ bids.last.price }}</strong></p>
         
         {% if listing.creator == user %}
-            <form action="{% url 'reactivate' %}" method="post">
+            <form action="{% url 'auctions:reactivate' %}" method="post">
                 {% csrf_token %}
                 <div class="form-group">
                     <input autofocus class="form-control" type="hidden" name="listing_id" value="{{ listing.id }}">
@@ -101,7 +101,7 @@
             </form>
         {% endif %}
         
-        <a href="{% url 'index' %}">Return to the Active Listings</a>
+        <a href="{% url 'auctions:index' %}">Return to the Active Listings</a>
     {% endif %}
 
 {% endblock %}

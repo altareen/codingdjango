@@ -4,7 +4,7 @@
     <h2>Active Listings</h2>
     <hr>
         {% for listing in listings %}
-            <h3>Listing: <a href="{% url 'listing' listing.id %}">{{ listing.title }}</a></h3>
+            <h3>Listing: <a href="{% url 'auctions:listing' listing.id %}">{{ listing.title }}</a></h3>
             
             {% if listing.active %}
                 <img src="{{ listing.url }}" alt="product listing" style="width:200px;height:200px;">

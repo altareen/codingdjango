@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'taggit',
 
     # Web project applications
-    #'academics.apps.AdvertsConfig',
+    'academics.apps.AcademicsConfig',
     'adverts.apps.AdvertsConfig',
     'auctions.apps.AuctionsConfig',
     'autos.apps.AutosConfig',

@@ -8,9 +8,8 @@ from django import forms
 import datetime
 
 #from .models import User, Bid, Comment, Listing
-from django.contrib.auth.models import User
 from .models import Bid, Comment, Listing
-
+from django.contrib.auth.models import User
 
 class CreateListingForm(forms.Form):
     title = forms.CharField(label="Title")

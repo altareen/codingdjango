@@ -152,7 +152,7 @@
 # In the same directory as manage.py, create a Procfile:
 # echo web: gunicorn codingdjango.wsgi --log-file - > Procfile
 
-# Push code to the heroku, then github repositories:
+# Push code to the heroku and github repositories:
 #---------------------------------------------------
 # git add .
 # git commit -m "deploy codingdjango"

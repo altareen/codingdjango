@@ -1,0 +1,13 @@
+{% extends "academics/layout.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block body %}
+    <h2>Create New Course:</h2>
+    
+    <form action="{% url 'academics:create' %}" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit">
+    </form>
+{% endblock %}

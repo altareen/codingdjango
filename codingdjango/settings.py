@@ -48,10 +48,12 @@ INSTALLED_APPS = [
     'taggit',
 
     # Web project applications
+    #'academics.apps.AdvertsConfig',
     'adverts.apps.AdvertsConfig',
     'auctions.apps.AuctionsConfig',
     'autos.apps.AutosConfig',
     'events.apps.EventsConfig',
+    #'network.apps.NetworkConfig',
 ]
 
 MIDDLEWARE = [

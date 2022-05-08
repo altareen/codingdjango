@@ -9,7 +9,7 @@
         <p><strong>{{ student.first_name }} {{ student.last_name }}</strong>, you have successfully <strong>{{ action }}</strong> the course: <strong>{{ course.title }}</strong></p>
     {% endif %}
 
-    <form action="/">
+    <form action="{% url 'academics:index' %}">
         <div class="form-group">
             <button class="btn btn-primary" type="submit">Return to Course Listings</button>
         </div>
